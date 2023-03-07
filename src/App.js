@@ -7,7 +7,7 @@ function App() {
     return (
 
         <BrowserRouter>
-            <Box sx={{ backgroundColor: '#00FFFF' }}>
+            <Box sx={{ backgroundColor: '#000' }}>
                 <Navbar />
                 <Routes>
                     <Route path="/" element={<Feed />} />

@@ -1,8 +1,13 @@
+import { Box, Stack } from '@mui/system'
 import React from 'react'
 
 const Feed = () => {
     return (
-        <h1 style={{ color: 'black' }}>Feed</h1>
+        <Stack direction={{ xs: 'column', sm: 'row' }}>
+            <Box>
+
+            </Box>
+        </Stack>
     )
 }
 
