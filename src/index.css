@@ -25,14 +25,8 @@ a {
     background-color: transparent;
 }
 
-.category-btn:hover {
-    background-color: #FC1503 !important;
-    color: white !important;
-}
 
-.category-btn:hover span {
-    color: white !important;
-}
+
 
 .react-player {
     height: 77vh !important;
@@ -61,6 +55,16 @@ a {
     border-radius: 20px;
     transition: all 0.3s ease;
 }
+
+.category-btn:hover {
+    background-color: #FC1503 !important;
+    color: white !important;
+}
+
+.category-btn:hover span {
+    color: white !important;
+}
+
 
 @media screen and (max-width: 900px) {
     .category-btn {
