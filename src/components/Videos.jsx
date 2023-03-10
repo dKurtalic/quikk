@@ -1,8 +1,9 @@
 import React from 'react'
 
-const Videos = () => {
+const Videos = ({ videos }) => {
+    const broj = videos.size
     return (
-        <div>Videos</div>
+        <h1 style={{ color: 'white' }}>Ima ${broj} videa</h1>
     )
 }
 

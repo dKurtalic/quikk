@@ -1,9 +1,8 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://youtube-v31.p.rapidapi.com/captions';
+const BASE_URL = 'https://youtube-v31.p.rapidapi.com';
 const options = {
-    method: 'GET',
-    url: BASE_URL,
+
     params: { part: 'snippet', videoId: 'M7FIvfx5J10' },
     headers: {
         'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY,
@@ -11,6 +10,17 @@ const options = {
     }
 };
 
-export const fetch = async ({ url }) => {
-    await axios.get(`${BASE_URL}`)
+export const fetch = async (url) => {
+    console.log("Ovo je url " + url);
+    try {
+        const response = await axios.get(`${BASE_URL}/${url}`, options);
+        console.log("evo response " + response);
+        const data = JSON.stringify(response)
+        console.log("JSON " + data)
+        return { response }
+    } catch (error) {
+        console.log("o joj");
+        throw error;
+    }
+
 }
