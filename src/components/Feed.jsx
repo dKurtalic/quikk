@@ -8,12 +8,12 @@ import { fetch } from '../utils/fetch'
 const Feed = () => {
 
     const [selectedCategory, setSelectedCategory] = useState('new')
-    const [videos, setVideos] = useState([])
+    const [videos, setVideos] = useState(null)
 
     useEffect(() => {
+        setVideos(null)
         fetch(`search?q=${selectedCategory}&part=snippet`).then((data) => {
-            const broj = data.items.length
-            console.log("Data : " + broj)
+            setVideos(data.items)
         })
     }, [selectedCategory])
     return (
@@ -29,7 +29,7 @@ const Feed = () => {
             </Box>
             <Box p={2} overflowy="auto" height="90vh" flex={2}>
                 <Typography variant='h4' fontWeight="bold" mb={2} sx={{ color: 'white' }}>
-                    New <span style={{ color: "#F31503" }}>videos</span>
+                    {selectedCategory}<span style={{ color: "#F31503" }}> videos</span>
                 </Typography>
                 <Videos videos={[videos]} />
             </Box>
