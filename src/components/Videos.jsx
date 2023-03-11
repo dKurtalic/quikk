@@ -1,25 +1,30 @@
-import React from 'react'
-import { VideoCard, ChannelCard } from './';
-import { Box, Stack } from '@mui/system'
+import React from "react";
+import { Stack, Box } from "@mui/material";
 
+import { ChannelCard, Loader, VideoCard } from "./";
+import { green } from "@mui/material/colors";
 
-const Videos = ({ videos }) => {
-
+const Videos = ({ videos, direction }) => {
+    console.log("Videi ");
     console.log(videos)
-    return (
-        /*   <Stack direction={{ xs: 'row', sm: 'column' }} justifyContent="start" gap={2}>
-             {videos.map((item, index) => (
-                   <Box key={index}>
-                       {item.id.videoId && <VideoCard video={item} />}
-                       {item.id.channelId && <ChannelCard channelDetail={item} />}
-                   </Box>
-               
-               ))}
-   
-           </Stack>
-           */
-        <div>ola</div>
-    )
+    if (videos !== null && videos[0] !== null) {
+        console.log("prosao")
+        return (
+            <Stack direction={direction || "row"} flexWrap="wrap" justifyContent="start" alignItems="start" gap={2}>
+                {videos[0].map((item, idx) => (
+                    <Box key={idx}>
+                        {item.id.videoId && <VideoCard video={item}></VideoCard>}
+                        {item.id.channelId && <ChannelCard video={item}></ChannelCard>}
+                    </Box>
+                ))}
+            </Stack>
+        );
+    } else {
+        return (
+            <div>jbg</div>
+        )
+    }
+
 }
 
-export default Videos
+export default Videos;

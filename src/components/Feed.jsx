@@ -11,11 +11,11 @@ const Feed = () => {
     const [videos, setVideos] = useState(null)
 
     useEffect(() => {
-        setVideos(null)
-        fetch(`search?q=${selectedCategory}&part=snippet`).then((data) => {
-            setVideos(data.items)
-        })
-    }, [selectedCategory])
+        setVideos(null);
+
+        fetch(`search?part=snippet&q=${selectedCategory}`)
+            .then((data) => setVideos(data.items))
+    }, [selectedCategory]);
     return (
         <Stack direction={{ xs: 'column', sm: 'row' }}>
             <Box sx={{ height: { sx: 'auto', md: '94vh' }, borderRight: '1px solid #3d3d3d', px: { sx: 1, md: 2 } }}>
