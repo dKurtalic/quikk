@@ -7,17 +7,15 @@ import { fetch } from '../utils/fetch'
 
 const Feed = () => {
 
-    const [selectedCategory, setSelectedCategory] = useState('new')
+    const [selectedCategory, setSelectedCategory] = useState('New')
     const [videos, setVideos] = useState(null)
 
     useEffect(() => {
-        setVideos(null);
-
         fetch(`search?part=snippet&q=${selectedCategory}`)
             .then((data) => setVideos(data.items))
     }, [selectedCategory]);
     return (
-        <Stack direction={{ xs: 'column', sm: 'row' }}>
+        <Stack sx={{ flexDirection: { sx: 'column', sm: 'auto', md: 'row' } }}>
             <Box sx={{ height: { sx: 'auto', md: '94vh' }, borderRight: '1px solid #3d3d3d', px: { sx: 1, md: 2 } }}>
                 <SideBar
                     selectedCategory={selectedCategory}
@@ -27,7 +25,7 @@ const Feed = () => {
                     Dina Kurtalić @2023 ETF
                 </Typography>
             </Box>
-            <Box p={2} overflowy="auto" height="90vh" flex={2}>
+            <Box p={2} overflowy="auto" height="150vh" flex={2}>
                 <Typography variant='h4' fontWeight="bold" mb={2} sx={{ color: 'white' }}>
                     {selectedCategory}<span style={{ color: "#F31503" }}> videos</span>
                 </Typography>
