@@ -25,12 +25,10 @@ a {
     background-color: transparent;
 }
 
-
-
-
 .react-player {
-    height: 77vh !important;
+    height: 60vh !important;
     width: 100% !important;
+    margin-left: 60px;
 }
 
 .search-bar {

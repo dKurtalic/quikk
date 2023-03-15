@@ -5,15 +5,16 @@ import { ChannelCard, Loader, VideoCard } from "./";
 import { green } from "@mui/material/colors";
 
 const Videos = ({ videos, direction }) => {
-    console.log("Videi ");
-    console.log(videos)
+
+    console.log("U videu sam ");
+    console.log(videos);
     if (videos !== null && videos[0] !== null) {
         return (
-            <Stack direction={direction || "row"} flexWrap="wrap" justifyContent="start" alignItems="start" gap={2}>
-                {videos[0].map((item, idx) => (
-                    <Box key={idx}>
-                        {item.id.videoId && <VideoCard video={item}></VideoCard>}
-                        {item.id.channelId && <ChannelCard channel={item}></ChannelCard>}
+            <Stack direction={direction || "row"} flexWrap="wrap" justifyContent="start" alignItems="start" gap={2} margin='0'>
+                {videos.map((item, idx) => (
+                    <Box margin='0' key={idx}>
+                        {item?.id?.videoId && <VideoCard video={item}></VideoCard>}
+                        {item?.id?.channelId && <ChannelCard channel={item}></ChannelCard>}
                     </Box>
                 ))}
             </Stack>
