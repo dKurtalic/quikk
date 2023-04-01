@@ -5,10 +5,12 @@ import SideBar from './SideBar'
 import Videos from './Videos'
 import { fetch } from '../utils/fetch'
 
+
 const Feed = () => {
 
     const [selectedCategory, setSelectedCategory] = useState('New')
-    const [videos, setVideos] = useState(null)
+    const [videos, setVideos] = useState(null);
+
 
     useEffect(() => {
         fetch(`search?part=snippet&q=${selectedCategory}`)

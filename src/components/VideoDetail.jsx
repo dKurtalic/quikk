@@ -53,7 +53,7 @@ const VideoDetail = () => {
                                     sx={{ height: '40px', width: '40px', borderRadius: '50%', mr: '10px' }}
                                 />
                                 <Stack direction='column'>
-                                    <Link to={`channel/${videoDetails?.snippet.channelId}`}>
+                                    <Link to={`/channel/${videoDetails?.snippet.channelId}`}>
                                         <Stack direction='row'>
                                             <Typography variant='h6' sx={{ color: 'white', mr: '4px' }}>{videoDetails?.snippet?.channelTitle}</Typography>
                                             <CheckCircleIcon sx={{ color: 'white', fontSize: '18px', pt: '6px' }} />
