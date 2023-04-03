@@ -35,7 +35,7 @@ const VideoDetail = () => {
     }
 
     return (
-        <Box height='95vh' width='100%' display='flex'>
+        <Box height='95vh' width='100%' display='flex' backgroundColor='black'>
 
             <Stack direction={{ xs: 'column', sm: 'row' }} flexGrow={1}>
                 <Box flex={2.5}>

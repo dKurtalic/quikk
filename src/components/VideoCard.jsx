@@ -7,7 +7,7 @@ import ChannelCard from './ChannelCard';
 const VideoCard = ({ video: { id: { videoId }, snippet } }) => {
 
     return (
-        <Card sx={{ width: '320px', boxShadow: 'none', borderRadius: 0 }}>
+        <Card sx={{ width: '320px', boxShadow: 'none', border: '1px solid black', borderRadius: 4 }}>
             <Link to={videoId ? `/video/${videoId}` : `/video/${demoVideoUrl}`}>
                 <CardMedia image={snippet?.thumbnails?.high?.url} alt={snippet?.title} sx={{ height: 180, width: 358 }} />
             </Link>
@@ -19,7 +19,7 @@ const VideoCard = ({ video: { id: { videoId }, snippet } }) => {
                 </Link>
                 <Link to={snippet?.channelId ? `/channel/${snippet?.channelId}` : `/channel/${demoChannelUrl}`}>
                     <Typography variant='subtitle2' fontWeight="bold" sx={{ color: '#a9a9a9' }}>
-                        {snippet?.channelTitle.slice(0, 60) || demoChannelTitle.slice(0, 60)}
+                        {snippet?.channelTitle.slice(0, 100) || demoChannelTitle.slice(0, 90)}
                         <CheckCircleIcon color="#a9a9a9" sx={{ ml: "5px", fontSize: '15px' }}></CheckCircleIcon>
                     </Typography>
                 </Link>

@@ -6,11 +6,10 @@ import { green } from "@mui/material/colors";
 
 const Videos = ({ videos, direction }) => {
 
-    console.log("U videu sam ");
-    console.log(videos);
+
     if (videos !== null && videos[0] !== null) {
         return (
-            <Stack direction={direction || "row"} flexWrap="wrap" justifyContent="start" alignItems="start" gap={2} margin='0'>
+            <Stack direction={direction || "row"} flexWrap="wrap" justifyContent="start" alignItems="start" gap={2} margin='0' height='100%' backgroundColor='black'>
                 {videos.map((item, idx) => (
                     <Box margin='0' key={idx}>
                         {item?.id?.videoId && <VideoCard video={item}></VideoCard>}
