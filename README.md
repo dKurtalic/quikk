@@ -13,8 +13,6 @@ To set up the project, follow these steps:
 
 Preview:
 
-![image](https://github.com/dKurtalic/quikk/assets/92305269/08f5d001-b051-4c7f-ad39-50d65ed7da43)
-
 https://github.com/dKurtalic/quikk/assets/92305269/14cae53a-975f-48b8-b8e6-fe5875119ee9
 https://github.com/dKurtalic/quikk/assets/92305269/955d09a2-48b7-42f6-8842-ad744d78fe0d
 https://github.com/dKurtalic/quikk/assets/92305269/b4ed6262-611a-46b2-90b8-dcf0edd83624
