@@ -38,6 +38,11 @@ a {
     width: 350px;
 }
 
+.scrollableContainer {
+    overflow: scroll;
+
+}
+
 .category-btn {
     font-weight: bold !important;
     text-transform: capitalize;
@@ -64,6 +69,21 @@ a {
     color: white !important;
 }
 
+.horizontala {
+    display: flex;
+    align-items: center;
+
+}
+
+.link {
+    display: flex;
+    align-items: center;
+}
+
+.text {
+    color: #a9a9a9;
+    font-size: 13px;
+}
 
 @media screen and (max-width: 900px) {
     .category-btn {
@@ -89,4 +109,37 @@ a {
     .search-bar {
         width: 200px;
     }
+}
+
+/* For WebKit browsers (e.g., Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 16px;
+}
+
+::-webkit-scrollbar-track {
+    background: #333333;
+    border: 1px solid #141414;
+    border-radius: 10px;
+
+}
+
+::-webkit-scrollbar-thumb {
+
+    border-radius: 10px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+    background-color: #d55959;
+}
+
+/* For Firefox */
+::-moz-scrollbar {
+    width: 10px;
+}
+
+::-moz-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-moz-scrollbar-thumb {
+    background: red;
 }
