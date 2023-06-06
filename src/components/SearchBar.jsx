@@ -26,8 +26,15 @@ const SearchBar = () => {
                 border: '1px solid #e3e3e3',
                 pl: 2
             }}>
-            <input className='search-bar' placeholder='Search...' value={searchQuery} onChange={(query) => { setSearchQuery(query.target.value) }} />
-            <IconButton type="submit" sx={{ p: '10px', color: 'red' }}> <SearchIcon /> </IconButton>
+
+
+            <input className='search-bar' id="search-bar" placeholder='Search...'
+                value={searchQuery} aria-label='search query' onChange={(query) => { setSearchQuery(query.target.value) }} />
+            <IconButton type="submit" sx={{ p: '10px', color: 'red' }} aria-label="Search">
+                <SearchIcon />
+            </IconButton>
+
+
         </Paper>
     )
 }

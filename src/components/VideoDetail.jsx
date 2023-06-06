@@ -6,6 +6,7 @@ import { Link, useParams } from 'react-router-dom'
 import CheckroomIcon from '@mui/icons-material/Checkroom';
 import { fetch } from '../utils/fetch';
 import ChannelCard from './ChannelCard';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Videos from './Videos'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
@@ -33,22 +34,37 @@ const VideoDetail = () => {
         console.log("id je " + id);
         fetch(`channels?id=${id}&part=snippet`).then((data) => { setChannelInfo(data) });
     }
+    function formatirajBroj(broj) {
+        var brojString = broj?.toString();
+        brojString = brojString?.split("").reverse();
+        var vrati = "";
+        for (let i = 0; i < brojString?.length; i++) {
+            if (i % 3 == 0 && i != 0) vrati += ".";
+            vrati += brojString[i];
+            console.log(vrati);
+        }
+        vrati = vrati.split("").reverse().join("");
+
+        return vrati;
+    }
+
+
 
     return (
-        <Box height='95vh' width='100%' display='flex' backgroundColor='black'>
+        <Box height='95vh' width='100%' display='flex' backgroundColor='black' sx={{ flexBasis: "100%" }} >
 
             <Stack direction={{ xs: 'column', sm: 'row' }} flexGrow={1}>
-                <Box flex={2.5}>
-                    <Stack direction='column' width='100%' sx={{ position: 'sticky', top: '86px' }}>
-                        <Box sx={{ width: '93%', marginBottom: '10px' }}>
+                <Box flex={1.5} sx={{ marginRight: '50px' }}>
+                    <Stack direction='column' width='100%' sx={{ width: '100%', position: 'sticky', top: '86px' }}>
+                        <Box sx={{ marginBottom: '10px' }}>
                             <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} className='react-player' controls />
                         </Box>
                         <Typography variant='h5' sx={{ color: 'white', size: '30px', ml: '60px', mt: '10px' }} fontWeight='bold'>{videoDetails?.snippet?.title}</Typography>
-                        <Typography sx={{ color: colors.light_gray, size: FONT_SIZE.large, ml: '60px', mt: '5px' }} fontWeight='bold'>{videoDetails?.statistics?.viewCount} views</Typography>
+                        <Typography sx={{ color: colors.light_gray, size: FONT_SIZE.large, ml: '60px', mt: '5px' }} fontWeight='bold'>{formatirajBroj(videoDetails?.statistics?.viewCount)} views</Typography>
                         <Stack direction='row' flexWrap='wrap' sx={{ ml: '60px' }} alignItems='center' justifyContent='space-between' >
                             <Stack direction='row' justifyContent='center' sx={{ mt: '10px' }}>
                                 <CardMedia
-                                    image={channelInfo?.items[0]?.snippet?.thumbnails?.high?.url}
+                                    image={channelInfo?.items[0].snippet?.thumbnails?.high?.url}
                                     alt={channelInfo?.items[0].snippet?.title}
                                     sx={{ height: '40px', width: '40px', borderRadius: '50%', mr: '10px' }}
                                 />
@@ -59,7 +75,7 @@ const VideoDetail = () => {
                                             <CheckCircleIcon sx={{ color: 'white', fontSize: '18px', pt: '6px' }} />
                                         </Stack >
                                     </Link>
-                                    <Typography variant='caption' sx={{ color: '#D3D3D3' }}>{channelInfo?.items[0].statistics?.subscriberCount} subscribers</Typography>
+                                    <Typography variant='caption' sx={{ color: '#D3D3D3' }}>{formatirajBroj(channelInfo?.items[0].statistics?.subscriberCount)} subscribers</Typography>
                                 </Stack>
                             </Stack>
 
@@ -67,19 +83,19 @@ const VideoDetail = () => {
                                 <Paper sx={{ p: 1, border: '1px solid gray ', borderRadius: SPACING.medium, backgroundColor: colors.light_gray }} >
                                     <Box display='flex' flexDirection='row' gap={1} >
                                         <ThumbUpIcon sx={{ color: 'white' }} />
-                                        <Typography sx={{ color: 'white' }}>{videoDetails?.statistics?.likeCount}</Typography>
+                                        <Typography sx={{ color: 'white' }}>{formatirajBroj(videoDetails?.statistics?.likeCount)}</Typography>
                                     </Box>
                                 </Paper>
                                 <Paper sx={{ p: 1, border: '1px solid gray ', borderRadius: SPACING.medium, backgroundColor: colors.light_gray }} >
                                     <Box display='flex' flexDirection='row' gap={1} >
-                                        <FavoriteIcon sx={{ color: 'white' }} />
-                                        <Typography sx={{ color: 'white' }}>{videoDetails?.statistics?.favoriteCount}</Typography>
+                                        <BookmarkIcon sx={{ color: 'white' }} />
+                                        <Typography sx={{ color: 'white' }}>{formatirajBroj(videoDetails?.statistics?.favoriteCount)}</Typography>
                                     </Box>
                                 </Paper>
                                 <Paper sx={{ p: 1, border: '1px solid gray ', borderRadius: SPACING.medium, backgroundColor: colors.light_gray }} >
                                     <Box display='flex' flexDirection='row' gap={1} >
                                         <InsertCommentIcon sx={{ color: 'white' }} />
-                                        <Typography sx={{ color: 'white' }}>{videoDetails?.statistics?.commentCount}</Typography>
+                                        <Typography sx={{ color: 'white' }}>{formatirajBroj(videoDetails?.statistics?.commentCount)}</Typography>
                                     </Box>
                                 </Paper>
                             </Stack>
@@ -87,10 +103,10 @@ const VideoDetail = () => {
                         </Stack>
                     </Stack>
                 </Box>
-                <Box flex={1} px={2} py={{ md: 1, xs: 5 }} justifyContent='center' alignItems='center' sx={{ marginLeft: '2rem' }}>
+                <Box className="scrollableContainer" flex={1} px={2} py={{ md: 2, xs: 5 }} justifyContent='center' alignItems='center' sx={{ marginX: '2rem' }}>
                     <Videos videos={relatedVideos} direction='column' />
                 </Box>
-            </Stack>
+            </Stack >
         </Box >
     );
 

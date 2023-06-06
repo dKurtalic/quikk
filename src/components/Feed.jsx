@@ -60,12 +60,15 @@ const Feed = () => {
                         Dina Kurtalić @2023 ETF
                     </Typography>
                 </Box>
-                <Box p={2} maxHeight='80vh'>
-                    <Typography variant='h4' fontWeight='bold' mb={2} sx={{ color: 'white' }}>
-                        {selectedCategory}<span style={{ color: '#F31503' }}> videos</span>
-                    </Typography>
-                    <Videos videos={videos} direction='row' sx={{ height: '100%' }} />
-                </Box>
+                <div style={{ display: 'flex', justifyContent: 'center', width: '100%', paddingLeft: '30px' }}>
+                    <Box p={2} maxHeight='80vh'>
+                        <Typography variant='h4' fontWeight='bold' mb={2} sx={{ color: 'white' }}>
+                            {selectedCategory}<span style={{ color: '#F31503' }}> videos</span>
+                        </Typography>
+                        <Videos videos={videos} direction='row' sx={{ height: '100%' }} />
+                    </Box>
+                </div>
+
             </Stack >
         </Box >
     )

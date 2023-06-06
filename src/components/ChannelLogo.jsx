@@ -3,7 +3,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 import React from 'react'
 
-const ChannelLogo = ({ id, snippet, marginTop }) => {
+const ChannelLogo = ({ id, snippet, marginTop, height = 180, width = 180, fontSize = 18 }) => {
     return (
 
         <CardContent sx={{ zIndex: '11' }}>
@@ -12,15 +12,15 @@ const ChannelLogo = ({ id, snippet, marginTop }) => {
                 alt={snippet?.title}
                 sx={{
                     marginTop,
-                    height: 180,
-                    width: 180,
+                    height: height,
+                    width: width,
                     backgroundColor: '#a9a9a9',
                     borderRadius: '50%',
                 }}
             />
             <Typography variant='h6' fontWeight='bold' sx={{ textAlign: 'center', color: 'white', mt: '10px' }}>
                 {snippet?.title}
-                <CheckCircleIcon sx={{ color: "a9a9a9", fontSize: '18px', pl: '5px' }}></CheckCircleIcon>
+                <CheckCircleIcon sx={{ color: "a9a9a9", fontSize: fontSize, pl: '5px' }}></CheckCircleIcon>
             </Typography>
         </CardContent>
     )

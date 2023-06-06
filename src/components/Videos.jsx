@@ -6,7 +6,6 @@ import { green } from "@mui/material/colors";
 
 const Videos = ({ videos, direction }) => {
 
-
     if (videos !== null && videos[0] !== null) {
         return (
             <Stack direction={direction || "row"} flexWrap="wrap" justifyContent="start" alignItems="start" gap={2} margin='0' height='100%' backgroundColor='black'>
