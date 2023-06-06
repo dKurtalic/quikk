@@ -12,7 +12,7 @@ To set up the project, follow these steps:
 - Important Note: Quik is a non-commercial project, created for educational purposes only.
 
 Preview:
-![image](https://github.com/dKurtalic/quikk/assets/92305269/14cae53a-975f-48b8-b8e6-fe5875119ee9)
+![alt text](https://github.com/dKurtalic/quikk/assets/92305269/14cae53a-975f-48b8-b8e6-fe5875119ee9)
 ![image](https://github.com/dKurtalic/quikk/assets/92305269/955d09a2-48b7-42f6-8842-ad744d78fe0d)
 ![image](https://github.com/dKurtalic/quikk/assets/92305269/b4ed6262-611a-46b2-90b8-dcf0edd83624)
 
