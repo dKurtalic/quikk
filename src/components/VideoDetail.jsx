@@ -3,15 +3,12 @@ import { Box, Stack } from '@mui/system';
 import React, { useEffect, useState } from 'react'
 import ReactPlayer from 'react-player'
 import { Link, useParams } from 'react-router-dom'
-import CheckroomIcon from '@mui/icons-material/Checkroom';
 import { fetch } from '../utils/fetch';
-import ChannelCard from './ChannelCard';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Videos from './Videos'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import InsertCommentIcon from '@mui/icons-material/InsertComment';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import { colors } from '../utils/colors';
 import { SPACING, FONT_SIZE } from '../utils/dimensions';
 
@@ -39,7 +36,7 @@ const VideoDetail = () => {
         brojString = brojString?.split("").reverse();
         var vrati = "";
         for (let i = 0; i < brojString?.length; i++) {
-            if (i % 3 == 0 && i != 0) vrati += ".";
+            if (i % 3 === 0 && i !== 0) vrati += ".";
             vrati += brojString[i];
             console.log(vrati);
         }
@@ -103,7 +100,7 @@ const VideoDetail = () => {
                         </Stack>
                     </Stack>
                 </Box>
-                <Box className="scrollableContainer" flex={1} px={2} py={{ md: 2, xs: 5 }} justifyContent='center' alignItems='center' sx={{ marginX: '2rem' }}>
+                <Box className="scrollableContainer" flex={1} px={2} py={{ md: 2, xs: 5 }} justifyContent='center' alignItems='center' sx={{ marginX: '2rem', overflowY: 'hidden' }}>
                     <Videos videos={relatedVideos} direction='column' />
                 </Box>
             </Stack >

@@ -1,8 +1,7 @@
 import React from "react";
 import { Stack, Box } from "@mui/material";
 
-import { ChannelCard, Loader, VideoCard } from "./";
-import { green } from "@mui/material/colors";
+import { ChannelCard, VideoCard } from "./";
 
 const Videos = ({ videos, direction }) => {
 

@@ -3,23 +3,13 @@ import React, { useEffect, useState } from 'react'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { Link } from 'react-router-dom'
 import { fetch } from '../utils/fetch'
-import { demoThumbnailUrl, demoChannelUrl, demoVideoUrl, demoChannelTitle, demoVideoTitle, demoProfilePicture } from '../utils/constants'
-import ChannelCard from './ChannelCard';
-import ChannelLogo from './ChannelLogo'
+import { demoChannelUrl, demoVideoUrl, demoVideoTitle } from '../utils/constants'
 
 const VideoCard = ({ video: { id: { videoId }, snippet } }) => {
 
-
-    const [videoDetails, setVideoDetails] = useState(null);
-    const [mojId, setMojId] = useState(null);
     const [profilna, setProfilna] = useState(null)
 
     const channelId = snippet.channelId;
-    useEffect(() => {
-        postavi();
-
-    }, [videoId]);
-
 
     async function postavi() {
         /*   await fetch(`videos?id=${videoId}&part=snippet`).then((data) => {
@@ -31,10 +21,17 @@ const VideoCard = ({ video: { id: { videoId }, snippet } }) => {
             setProfilna(data?.items[0]);
         });
     }
+    useEffect(() => {
+        postavi();
+
+    }, [videoId]);
+
+
+
 
 
     return (
-        <Card sx={{ width: '320px', boxShadow: 'none', border: '1px solid black', borderRadius: 4, boxShadow: '0px 2px 4px rgba(153,153,153, 1)' }}>
+        <Card sx={{ width: '320px', border: '1px solid black', borderRadius: 4, boxShadow: '0px 1px 5px rgba(153,153,153, 1)' }}>
             <Link to={videoId ? `/video/${videoId}` : `/video/${demoVideoUrl}`}>
                 <CardMedia image={snippet?.thumbnails?.high?.url} alt={snippet?.title} sx={{ height: 170, width: 358 }} />
             </Link>
