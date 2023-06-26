@@ -11,6 +11,22 @@ const VideoCard = ({ video: { id: { videoId }, snippet } }) => {
 
     const channelId = snippet.channelId;
 
+    function formatirajNaslov(tekst) {
+        tekst = tekst.replace(/&amp;/g, '&')
+            .replace(/&#39;/g, "'")
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&quot;/g, '"')
+            .replace(/&apos;/g, "'")
+            .replace(/&nbsp;/g, ' ')
+            .replace(/&reg;/g, '®')
+            .replace(/&copy;/g, '©')
+            .replace(/&euro;/g, '€')
+            .replace(/&bull;/g, '•');
+        if (tekst.length > 65) tekst = tekst.slice(0, 65) + '...'
+        return tekst;
+    }
+
     async function postavi() {
         /*   await fetch(`videos?id=${videoId}&part=snippet`).then((data) => {
                setVideoDetails(data?.items[0]);
@@ -35,10 +51,10 @@ const VideoCard = ({ video: { id: { videoId }, snippet } }) => {
             <Link to={videoId ? `/video/${videoId}` : `/video/${demoVideoUrl}`}>
                 <CardMedia image={snippet?.thumbnails?.high?.url} alt={snippet?.title} sx={{ height: 170, width: 358 }} />
             </Link>
-            <CardContent sx={{ overflowX: 'auto', height: '95px', backgroundColor: 'black' }}>
+            <CardContent sx={{ height: '100px', backgroundColor: 'black' }}>
                 <Link to={videoId ? `/video/${videoId}` : `/video/${demoVideoUrl}`}>
                     <Typography variant='subtitle2' fontWeight="bold" sx={{ color: '#fff', fontSize: '16px' }}>
-                        {snippet?.title.slice(0, 50) || demoVideoTitle.slice(0, 60)}
+                        {formatirajNaslov(snippet?.title) || demoVideoTitle.slice(0, 60)}
                     </Typography>
                 </Link>
 
@@ -68,3 +84,5 @@ const VideoCard = ({ video: { id: { videoId }, snippet } }) => {
 }
 
 export default VideoCard
+
+/* */
