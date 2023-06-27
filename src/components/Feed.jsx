@@ -49,8 +49,9 @@ const Feed = () => {
         window.addEventListener("scroll", handleScroll);
     }, [])
     return (
-        <Box display='flex' backgroundColor='black'>
-            <Stack sx={{ flexDirection: { sx: 'column', sm: 'auto', md: 'row' } }}>
+
+        <Box display='flex' backgroundColor='black' >
+            <Stack sx={{ flexDirection: { sx: "column", sm: 'column', md: "row" } }}>
                 <Box sx={{ height: { sx: 'auto', md: 'auto' }, borderRight: '1px solid #3d3d3d', px: { sx: 1, md: 2 } }}>
                     <SideBar
                         selectedCategory={selectedCategory}
@@ -60,17 +61,23 @@ const Feed = () => {
                         Dina Kurtalić @2023 ETF
                     </Typography>
                 </Box>
-                <div style={{ display: 'flex', justifyContent: 'center', width: '100%', paddingLeft: '30px' }}>
-                    <Box p={2} maxHeight='80vh'>
+
+                <div style={{ display: 'flex', justifyContent: { lg: 'center', md: 'center' }, paddingLeft: { lg: '30px' } }}>
+                    <Box p={2} sx={{ height: "90vh", flex: 2 }} >
                         <Typography variant='h4' fontWeight='bold' mb={2} sx={{ color: 'white' }}>
                             {selectedCategory}<span style={{ color: '#F31503' }}> videos</span>
                         </Typography>
-                        <Videos videos={videos} direction='row' sx={{ height: '100%' }} />
+                        <Videos videos={videos} />
                     </Box>
                 </div>
 
+
+
+
+
             </Stack >
         </Box >
+
     )
 }
 

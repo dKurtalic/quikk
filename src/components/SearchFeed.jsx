@@ -38,6 +38,10 @@ const SearchFeed = () => {
 
     }, [counter, searchQuery]);
 
+    useEffect(() => {
+        setVideos([])
+    }, [searchQuery])
+
     const handleScroll = () => {
         if (videos != null && videos.length < 50) {
             if (window.innerHeight + document.documentElement.scrollTop + 1 >= document.documentElement.scrollHeight && videos.length <= 50) {
